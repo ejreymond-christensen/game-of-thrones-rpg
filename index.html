@@ -4,10 +4,164 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Star Wars RPG</title>
   </head>
   <body>
-
+    <nav class="navbar">
+      <h1>Star Wars Battle Royale</h1>
+    </nav>
+    <div class="Container" style="height: 100%">
+      <section class="row available">
+        <div class="col-md-2 col-sm-4">
+          <div class="card m-1">
+            <img class="card-img-top" src="assets/img/fett.jpg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="card m-1">
+            <img class="card-img-top" src="assets/img/rey.jpg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="card m-1">
+            <img class="card-img-top" src="assets/img/kylo.jpg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="card m-1">
+            <img class="card-img-top" src="assets/img/luke.jpg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="card m-1">
+            <img class="card-img-top" src="assets/img/solo.jpeg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="card m-1">
+            <img class="card-img-top" src="assets/img/vader.jpeg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="available">
+        <h2>CHOSE YOUR PLAYER</h2>
+      </div>
+      <div class="row gameWindow">
+        <section class="col-md-4 player">
+            <div class="card playerCard m-1">
+              <img class="card-img-top" src="assets/img/fett.jpg" alt="rey">
+              <div class="card-body p-1">
+                <h5 class="playerName">REY</h5>
+                <hr class="playerNameBreak">
+                <p class="playerStats">Health: 120</p>
+                <p class="playerStats">Attack: 8</p>
+                <p class="playerStats text-right">player</p>
+              </div>
+            </div>
+        </section>
+        <section class="vs">
+          <h2 class="align-middle">vs</h2>
+          <button type="button" class="btn btn-danger">Attack</button>
+        </section>
+        <section class="col-md-3 defender">
+          <div class="card defenderCard m-1">
+            <img class="card-img-top" src="assets/img/rey.jpg" alt="rey">
+            <div class="card-body p-1">
+              <h5 class="playerName">REY</h5>
+              <hr class="playerNameBreak">
+              <p class="playerStats">Health: 120</p>
+              <p class="playerStats">Attack: 8</p>
+              <p class="playerStats text-right">current enemy</p>
+            </div>
+          </div>
+        </section>
+        <section class="col-md-4 enemies">
+          <div class="row">
+            <div class="card enemyCard m-1">
+              <img class="card-img-top" src="assets/img/kylo.jpg" alt="rey">
+              <div class="card-body p-1">
+                <h5 class="playerName">REY</h5>
+                <hr class="playerNameBreak">
+                <p class="playerStats">Health: 120</p>
+                <p class="playerStats">Attack: 8</p>
+                <p class="playerStats text-right">waiting enemy</p>
+              </div>
+            </div>
+            <div class="card enemyCard m-1">
+              <img class="card-img-top" src="assets/img/luke.jpg" alt="rey">
+              <div class="card-body p-1">
+                <h5 class="playerName">REY</h5>
+                <hr class="playerNameBreak">
+                <p class="playerStats">Health: 120</p>
+                <p class="playerStats">Attack: 8</p>
+                <p class="playerStats text-right">waiting enemy</p>
+              </div>
+            </div>
+            <div class="card enemyCard m-1">
+              <img class="card-img-top" src="assets/img/solo.jpeg" alt="rey">
+              <div class="card-body p-1">
+                <h5 class="playerName">REY</h5>
+                <hr class="playerNameBreak">
+                <p class="playerStats">Health: 120</p>
+                <p class="playerStats">Attack: 8</p>
+                <p class="playerStats text-right">waiting enemy</p>
+              </div>
+            </div>
+            <div class="card deadEnemyCard m-1">
+              <img class="card-img-top" src="assets/img/vader.jpeg" alt="rey">
+              <div class="card-body p-1">
+                <h5 class="playerName">REY</h5>
+                <hr class="playerNameBreak">
+                <p class="playerStats">Health: 120</p>
+                <p class="playerStats">Attack: 8</p>
+                <p class="playerStats text-right">dead enemy</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
   </body>
 </html>
