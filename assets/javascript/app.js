@@ -1,4 +1,4 @@
-$(document).ready(function() {
+//$(document).ready(function() {
 // ***-=MODEL=-***
 
 /* Each character comes with:
@@ -37,7 +37,7 @@ var character = [
   {"name": "Darth Vader",
   "label": "vader",
   "photo": "assets/img/vader.jpeg",
-  "status": "deadEnemy",
+  "status": "enemy",
   "healthPoint": "100",
   "attackPower": "10",
   "counterAttack": "1"},
@@ -53,7 +53,7 @@ var character = [
   {"name": "Hans Solo",
   "label": "solo",
   "photo": "assets/img/solo.jpeg",
-  "status": "deadEnemy",
+  "status": "enemy",
   "healthPoint": "60",
   "attackPower": "12",
   "counterAttack": "1"}
@@ -66,6 +66,7 @@ var defenderHealth ="";
 
 
 var populateAvailableChars = function(){
+  $("#available").empty();
   for (var i = 0; i < character.length; i++) {
     $("#available").append(
       '<div class="col-md-2 col-sm-4">' +
@@ -89,15 +90,13 @@ populateAvailableChars();
 var showBattle = function(){
   $("#available").css('display', 'none');
   $("#availableText").css('display', 'none');
-  $("#gameWindow").css('display', 'flex');
+  $(".gameWindow").css('display', 'flex');
 };
 var showSelection = function(){
   $("#available").css('display', 'flex');
   $("#availableText").css('display', 'flex');
-  $("#gameWindow").css('display', 'none');
+  $(".gameWindow").css('display', 'none');
 };
-
-
 
 
 $(".availableCard").on("click", function(){
@@ -183,18 +182,14 @@ var chooseModal = function(){
   }
 };
 
-var winGame = function(){
-  var deathCount ="";
-  for (var i = 0; i < character.length; i++) {
-    if(character[i].label === "enemy"){
-      deathCount++;
-      console.log(deathCount);
-    }
-  }
-  if(deathCount === 0){
-    console.log("you win");
-  }
+var winModal= function(){
+  $("#modalImgs").append('<img id="winImg" src="">');
+  $("#modalImgs").append('<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload();">Close</button>');
+  $(".modal-title").html("You Win!");
+
+
 };
+
 
 var battle = function(){
   console.log("phealth: "+playerHealth);
@@ -219,6 +214,22 @@ var battle = function(){
   }
 };
 
+var winGame = function(){
+  var deathCount =0;
+  console.log(deathCount);
+  for (var i = 0; i < character.length; i++) {
+    if(character[i].status === "enemy"){
+      deathCount++;
+      console.log(deathCount);
+    }
+  }
+  if(deathCount === 0){
+    console.log("you win");
+    winModal();
+    $("#Modal").modal("show");
+  }
+};
+
 $("body").on("click",'img.modalIcon', function(){
   console.log("click");
   var nchar = $(this).attr("id");
@@ -237,7 +248,8 @@ $(".vs").on("click",'button.btn', function(){
   battle();
 });
 
-});
+
+//});
 //Notes - to center div for active row- (mx-auto in row div)
 
 // wrap everything in this so it only allows interaction after load...  $(document).ready(function() {
