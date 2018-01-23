@@ -1,3 +1,4 @@
+$(document).ready(function() {
 // ***-=MODEL=-***
 
 /* Each character comes with:
@@ -12,7 +13,7 @@ var character = [
   {"name": "Rey",
   "label": "rey",
   "photo": "assets/img/rey.jpg",
-  "status": "player",
+  "status": "enemy",
   "healthPoint": "120",
   "attackPower": "8",
   "counterAttack": "1"},
@@ -20,7 +21,7 @@ var character = [
   {"name": "Luke Skywalker",
   "label": "luke",
   "photo": "assets/img/luke.jpg",
-  "status": "defender",
+  "status": "enemy",
   "healthPoint": "50",
   "attackPower": "15",
   "counterAttack": "1"},
@@ -52,11 +53,16 @@ var character = [
   {"name": "Hans Solo",
   "label": "solo",
   "photo": "assets/img/solo.jpeg",
-  "status": "enemy",
+  "status": "deadEnemy",
   "healthPoint": "60",
   "attackPower": "12",
   "counterAttack": "1"}
 ];
+
+var playerHealth = "";
+var playerAttack = "";
+var playerCounterAttack = "";
+var defenderHealth ="";
 
 
 var populateAvailableChars = function(){
@@ -99,7 +105,26 @@ $(".availableCard").on("click", function(){
   for (var i = 0; i < character.length; i++) {
     if (char === character[i].label){
       character[i].status = "player";
+      playerHealth= character[i].healthPoint;
+      playerAttack= character[i].attackPower;
+      playerCounterAttack= character[i].counterAttack;
+
+      $("#player").append(
+        '<div class="card m-1  '+character[i].status+'Card" id="'+character[i].label+'">' +
+          '<img class="card-img-top" src="'+character[i].photo+'" alt="'+character[i].name+'">' +
+          '<div class="card-body p-1">' +
+            '<h5 class="playerName">'+character[i].name+'</h5>' +
+            '<hr class="playerNameBreak">' +
+            '<p class="playerStats" id="'+character[i].status+'HealthStat">Health: '+character[i].healthPoint+'</p>' +
+            '<p class="playerStats" id="'+character[i].status+'AttackStat">Attack: '+character[i].attackPower+'</p>' +
+            '<p class="playerStats text-right '+character[i].status+'Text"></p>' +
+          '</div>' +
+        '</div>'
+      );
     }
+    console.log(playerHealth);
+    console.log(playerAttack);
+    console.log(playerCounterAttack);
   }
   chooseModal();
   $("#Modal").modal("show");
@@ -107,6 +132,9 @@ $(".availableCard").on("click", function(){
 
 
 var populateBattleCharacters = function(){
+  var x= character[i];
+  $("#defender").empty();
+  $("#enemies").empty();
   for (var i = 0; i < character.length; i++){
     var card =
     '<div class="card m-1  '+character[i].status+'Card" id="'+character[i].label+'">' +
@@ -114,18 +142,20 @@ var populateBattleCharacters = function(){
       '<div class="card-body p-1">' +
         '<h5 class="playerName">'+character[i].name+'</h5>' +
         '<hr class="playerNameBreak">' +
-        '<p class="playerStats">Health: '+character[i].healthPoint+'</p>' +
-        '<p class="playerStats">Attack: '+character[i].attackPower+'</p>' +
+        '<p class="playerStats" id="'+character[i].status+'HealthStat">Health: '+character[i].healthPoint+'</p>' +
+        '<p class="playerStats" id="'+character[i].status+'AttackStat">Attack: '+character[i].attackPower+'</p>' +
         '<p class="playerStats text-right '+character[i].status+'Text"></p>' +
       '</div>' +
     '</div>';
     if (character[i].status === "player"){
-      $("#player").append(card);
       $(".playerText").text("player");
     }
     else if (character[i].status === "defender") {
       $("#defender").append(card);
       $(".defenderText").text("current enemy");
+      defenderHealth= character[i].healthPoint;
+      defenderAttack= character[i].attackPower;
+      defender= character[i].label;
     }
     else if (character[i].status === "enemy"){
       $("#enemies").prepend(card);
@@ -141,16 +171,73 @@ populateBattleCharacters();
 
 
 var chooseModal = function(){
+  $("#modalImgs").empty();
   for (var i = 0; i < character.length; i++){
     if (character[i].status === "enemy") {
       $("#modalImgs").append(
         '<div class= "col">' +
-        '<img class= "modalIcon" src="'+character[i].photo+'" alt="'+character[i].name+'">' +
+        '<img class= "modalIcon" id="'+character[i].label+'" src="'+character[i].photo+'" alt="'+character[i].name+'" data-dismiss="modal">' +
         '</div>'
       );
     }
   }
 };
+
+var winGame = function(){
+  var deathCount ="";
+  for (var i = 0; i < character.length; i++) {
+    if(character[i].label === "enemy"){
+      deathCount++;
+      console.log(deathCount);
+    }
+  }
+  if(deathCount === 0){
+    console.log("you win");
+  }
+};
+
+var battle = function(){
+  console.log("phealth: "+playerHealth);
+  console.log("dhealth: "+defenderHealth);
+  playerHealth = playerHealth - defenderAttack;
+  console.log("phealth: "+playerHealth);
+  defenderHealth = defenderHealth - playerAttack;
+  console.log("dhealth: "+defenderHealth);
+  playerAttack = playerAttack*2;
+  $("#defenderHealthStat").text("Health: "+defenderHealth);
+  $("#playerHealthStat").text("Health: "+playerHealth);
+  $("#playerAttackStat").text("Attack: "+playerAttack);
+  if (defenderHealth <= 0) {
+    for (var i = 0; i < character.length; i++) {
+      if (defender === character[i].label){
+        character[i].status = "deadEnemy";
+        chooseModal();
+        $("#Modal").modal("show");
+        winGame();
+      }
+    }
+  }
+};
+
+$("body").on("click",'img.modalIcon', function(){
+  console.log("click");
+  var nchar = $(this).attr("id");
+  console.log(nchar);
+  for (var i = 0; i < character.length; i++) {
+    if (nchar === character[i].label){
+      character[i].status = "defender";
+      populateBattleCharacters();
+      showBattle();
+    }
+  }
+});
+
+$(".vs").on("click",'button.btn', function(){
+  console.log("clickBattle");
+  battle();
+});
+
+});
 //Notes - to center div for active row- (mx-auto in row div)
 
 // wrap everything in this so it only allows interaction after load...  $(document).ready(function() {
