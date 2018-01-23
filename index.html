@@ -16,150 +16,41 @@
       <h1>Star Wars Battle Royale</h1>
     </nav>
     <div class="Container" style="height: 100%">
-      <section class="row available">
-        <div class="col-md-2 col-sm-4">
-          <div class="card m-1">
-            <img class="card-img-top" src="assets/img/fett.jpg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-          <div class="card m-1">
-            <img class="card-img-top" src="assets/img/rey.jpg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-          <div class="card m-1">
-            <img class="card-img-top" src="assets/img/kylo.jpg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-          <div class="card m-1">
-            <img class="card-img-top" src="assets/img/luke.jpg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-          <div class="card m-1">
-            <img class="card-img-top" src="assets/img/solo.jpeg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-          <div class="card m-1">
-            <img class="card-img-top" src="assets/img/vader.jpeg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-            </div>
-          </div>
-        </div>
+      <section class="row" id= "available">
       </section>
-      <div class="available">
+      <div id="availableText">
         <h2>CHOSE YOUR PLAYER</h2>
       </div>
       <div class="row gameWindow">
-        <section class="col-md-4 player">
-            <div class="card playerCard m-1">
-              <img class="card-img-top" src="assets/img/fett.jpg" alt="rey">
-              <div class="card-body p-1">
-                <h5 class="playerName">REY</h5>
-                <hr class="playerNameBreak">
-                <p class="playerStats">Health: 120</p>
-                <p class="playerStats">Attack: 8</p>
-                <p class="playerStats text-right">player</p>
-              </div>
-            </div>
+        <section class="col-md-4" id="player">
         </section>
         <section class="vs">
           <h2 class="align-middle">vs</h2>
           <button type="button" class="btn btn-danger">Attack</button>
         </section>
-        <section class="col-md-3 defender">
-          <div class="card defenderCard m-1">
-            <img class="card-img-top" src="assets/img/rey.jpg" alt="rey">
-            <div class="card-body p-1">
-              <h5 class="playerName">REY</h5>
-              <hr class="playerNameBreak">
-              <p class="playerStats">Health: 120</p>
-              <p class="playerStats">Attack: 8</p>
-              <p class="playerStats text-right">current enemy</p>
+        <section class="col-md-3" id="defender">
+        </section>
+        <section class="col-md-4">
+           <div class="row" id="enemies">
+           </div>
+        </section>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Choose your opponent</h5>
+            </div>
+            <div class="modal-body">
+              <div class="row" id="modalImgs">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="showBattle() populateBattleCharacters()">Fight</button>
             </div>
           </div>
-        </section>
-        <section class="col-md-4 enemies">
-          <div class="row">
-            <div class="card enemyCard m-1">
-              <img class="card-img-top" src="assets/img/kylo.jpg" alt="rey">
-              <div class="card-body p-1">
-                <h5 class="playerName">REY</h5>
-                <hr class="playerNameBreak">
-                <p class="playerStats">Health: 120</p>
-                <p class="playerStats">Attack: 8</p>
-                <p class="playerStats text-right">waiting enemy</p>
-              </div>
-            </div>
-            <div class="card enemyCard m-1">
-              <img class="card-img-top" src="assets/img/luke.jpg" alt="rey">
-              <div class="card-body p-1">
-                <h5 class="playerName">REY</h5>
-                <hr class="playerNameBreak">
-                <p class="playerStats">Health: 120</p>
-                <p class="playerStats">Attack: 8</p>
-                <p class="playerStats text-right">waiting enemy</p>
-              </div>
-            </div>
-            <div class="card enemyCard m-1">
-              <img class="card-img-top" src="assets/img/solo.jpeg" alt="rey">
-              <div class="card-body p-1">
-                <h5 class="playerName">REY</h5>
-                <hr class="playerNameBreak">
-                <p class="playerStats">Health: 120</p>
-                <p class="playerStats">Attack: 8</p>
-                <p class="playerStats text-right">waiting enemy</p>
-              </div>
-            </div>
-            <div class="card deadEnemyCard m-1">
-              <img class="card-img-top" src="assets/img/vader.jpeg" alt="rey">
-              <div class="card-body p-1">
-                <h5 class="playerName">REY</h5>
-                <hr class="playerNameBreak">
-                <p class="playerStats">Health: 120</p>
-                <p class="playerStats">Attack: 8</p>
-                <p class="playerStats text-right">dead enemy</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="assets/javascript/app.js"></script>

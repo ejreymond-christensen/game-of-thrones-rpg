@@ -20,10 +20,15 @@ h2, .vs{
 button{
   margin-top: 15px;
 }
-.available{
+#available , #availableText{
   height: 100%;
   display: flex;
   font-size: 11px
+}
+.availableCard:hover{
+  -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
 }
 .card-body{
   padding: 5px;
@@ -56,7 +61,7 @@ button{
   -moz-box-shadow: 0px 0px 14px 3px rgba(161,6,6,1);
   box-shadow: 0px 0px 14px 3px rgba(161,6,6,1);
 }
-.player, .defender, .enemies{
+#player, #defender, #enemies{
   margin: auto;
 }
 .gameWindow{
@@ -68,4 +73,10 @@ button{
   font-size: 12px;
   opacity: .3;
   color: rgba(161,6,6,1);
+}
+#modalImgs{
+  flex-wrap: nowrap;
+}
+.modalIcon{
+width: 100%;
 }
