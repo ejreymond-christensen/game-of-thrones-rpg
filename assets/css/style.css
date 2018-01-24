@@ -1,21 +1,28 @@
 body{
   /*font-size: 11px;*/
-  background-image: url(../img/deathstar3.jpg);
+  background-image: url(../img/got3.jpg);
   background-repeat: no-repeat;
-  background-color: #000;
+  background-color: #181818;
+  background-size: contain;
   margin: auto;
+  font-family: 'Lato', sans-serif;
 }
 h1{
+  font-family: 'Cinzel Decorative', cursive;
   margin: 0 auto;
   color: #fff;
   margin-bottom: 20px;
 }
 
 h2, .vs{
+  font-family: 'Cinzel Decorative', cursive;
   margin: auto;
   text-align: center;
   height: 100%;
   color: #fff;
+}
+h5{
+  font-family: 'Cinzel Decorative', cursive;
 }
 button{
   margin-top: 15px;
@@ -32,6 +39,7 @@ button{
 }
 .card-body{
   padding: 5px;
+  background-color: #D5D5D5;
 }
 .playerName{
   margin: 0px;
@@ -46,7 +54,7 @@ button{
   margin: 1px 0;
 }
 .enemyCard{
-  max-width: 40%;
+  max-width: 20%;
   font-size: 12px;
   opacity: .7;
 }
@@ -64,19 +72,82 @@ button{
 #player, #defender, #enemies{
   margin: auto;
 }
+#enemies{
+  display: flex;
+  margin: 0 auto;
+}
 .gameWindow{
   heigth: 100%;
   display: none;
 }
+.health{
+  margin-top: 100px;
+}
+.heart{
+  width: 60px;
+  height: 50px;
+  opacity: .7;
+}
+.heart:hover{
+  opacity: 1;
+}
 .deadEnemyCard{
-  max-width: 40%;
+  max-width: 20%;
   font-size: 12px;
   opacity: .3;
   color: rgba(161,6,6,1);
 }
+.clearfix::after {
+    clear: both;
+
+}
+#defenderAttackStat{
+  display: block;
+}
+#defenderHealthStat{
+  display: block;
+}
+#enemyAttackStat, #deadEnemyAttackStat{
+  width:50%;
+  float: right;
+  text-align: right;
+}
+#enemyHealthStat, #deadEnemyHealthStat{
+  width: 50%;
+
+}
+.modalSize{
+  width: 80% !important;
+  margin: auto;
+}
+.modal-content{
+  background-color: #D5D5D5;
+}
+
+#loseImg, #winImg{
+  display: block;
+  max-width: 500px;
+  max-height: 333px;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 400px) {
+  .modalSize{
+    width: 80%;
+    margin: auto;
+  }
+   }
 #modalImgs{
-  flex-wrap: nowrap;
+  //flex-wrap: wrap;
 }
 .modalIcon{
 width: 100%;
+border-radius: 60%;
+margin-top: 5px;
+}
+.modalIcon:hover{
+  -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
 }

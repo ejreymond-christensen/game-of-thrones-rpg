@@ -6,38 +6,56 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Lato" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Star Wars RPG</title>
+    <title>The Game of Thrones</title>
   </head>
   <body>
     <nav class="navbar">
-      <h1>Star Wars Battle Royale</h1>
+      <h1>The Game of Thrones</h1>
     </nav>
     <div class="Container" style="height: 100%">
       <section class="row" id= "available">
       </section>
       <div id="availableText">
-        <h2>CHOSE YOUR PLAYER</h2>
+        <h2>CHOOSE YOUR PLAYER</h2>
       </div>
       <div class="row gameWindow">
-        <section class="col-md-4" id="player">
+        <div class="col-md-1">
+          &nbsp;
+        </div>
+        <section class="col-md-3" id="player">
         </section>
-        <section class="vs">
+        <div class="col-md-1">
+          &nbsp;
+        </div>
+        <section class="col-md-2 vs">
           <h2 class="align-middle">vs</h2>
           <button type="button" class="btn btn-danger">Attack</button>
+        <div class="health">
+          <h5> R'hllor Revivals</h5>
+          <div id="rhllor"></div>
+        </div>
         </section>
+        <div class="col-md-1">
+          &nbsp;
+        </div>
         <section class="col-md-3" id="defender">
         </section>
-        <section class="col-md-4">
-           <div class="row" id="enemies">
-           </div>
-        </section>
+        <div class="col-md-1">
+          &nbsp;
+        </div>
+        <div class="row">
+          <section class="col-md-12">
+             <div class="col" id="enemies">
+             </div>
+          </section>
+        </div>
       </div>
-      <!-- Modal -->
-      <div class="modal fade" id="Modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modalSize" style="width:80%;" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Choose your opponent</h5>
