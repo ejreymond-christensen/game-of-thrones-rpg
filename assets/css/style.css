@@ -1,5 +1,4 @@
 body{
-  /*font-size: 11px;*/
   background-image: url(../img/got3.jpg);
   background-repeat: no-repeat;
   background-color: #181818;
@@ -7,6 +6,7 @@ body{
   margin: auto;
   font-family: 'Lato', sans-serif;
 }
+
 h1{
   font-family: 'Cinzel Decorative', cursive;
   margin: 0 auto;
@@ -21,42 +21,55 @@ h2, .vs{
   height: 100%;
   color: #fff;
 }
+
 h5{
   font-family: 'Cinzel Decorative', cursive;
 }
+
 button{
   margin-top: 15px;
 }
+
 #available , #availableText{
   height: 100%;
   display: flex;
   font-size: 11px
 }
+
 .availableCard:hover{
   -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
 }
+
 .card-body{
   padding: 5px;
   background-color: #D5D5D5;
 }
+
 .playerName{
   margin: 0px;
 }
+
 .playerNameBreak{
   margin: 1px auto;
 }
+
 .statsWrap{
   padding: 0 1px;
 }
+
 .playerStats{
   margin: 1px 0;
 }
+
 .enemyCard{
   max-width: 20%;
   font-size: 12px;
   opacity: .7;
+}
+.enemyName{
+  font-size: 16px;
 }
 
 .defenderCard, .playerCard{
@@ -64,62 +77,74 @@ button{
   margin: auto;
   font-size: 16px;
 }
+
 .defenderCard{
   -webkit-box-shadow: 0px 0px 14px 3px rgba(161,6,6,1);
   -moz-box-shadow: 0px 0px 14px 3px rgba(161,6,6,1);
   box-shadow: 0px 0px 14px 3px rgba(161,6,6,1);
 }
+
 #player, #defender, #enemies{
   margin: auto;
 }
+
 #enemies{
   display: flex;
   margin: 0 auto;
 }
+
 .gameWindow{
-  heigth: 100%;
   display: none;
 }
+
 .health{
   margin-top: 100px;
 }
+
 .heart{
   width: 60px;
   height: 50px;
   opacity: .7;
 }
+
 .heart:hover{
   opacity: 1;
 }
+
 .deadEnemyCard{
   max-width: 20%;
   font-size: 12px;
   opacity: .3;
   color: rgba(161,6,6,1);
 }
+
 .clearfix::after {
     clear: both;
-
 }
+
 #defenderAttackStat{
   display: block;
 }
+
 #defenderHealthStat{
   display: block;
 }
+
 #enemyAttackStat, #deadEnemyAttackStat{
   width:50%;
   float: right;
   text-align: right;
 }
+
 #enemyHealthStat, #deadEnemyHealthStat{
   width: 50%;
-
 }
+
 .modalSize{
   width: 80% !important;
   margin: auto;
 }
+
 .modal-content{
   background-color: #D5D5D5;
 }
@@ -132,22 +157,25 @@ button{
   height: auto;
 }
 
-@media (min-width: 400px) {
-  .modalSize{
-    width: 80%;
-    margin: auto;
-  }
-   }
 #modalImgs{
-  //flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .modalIcon{
 width: 100%;
 border-radius: 60%;
 margin-top: 5px;
 }
+
 .modalIcon:hover{
   -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.75);
+}
+
+@media (min-width: 400px) {
+  .modalSize{
+    width: 80%;
+    margin: auto;
+  }
 }

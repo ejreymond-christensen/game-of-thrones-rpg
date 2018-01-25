@@ -1,13 +1,14 @@
 $(document).ready(function() {
 
+//model
   var character = [
     {"name": "Tyrion",
     "fullName": "Tyrion Lannister",
     "label": "tryrion",
     "photo": "assets/img/tyrion.jpeg",
     "status": "enemy",
-    "healthPoint": 190,
-    "attackPower": 8,
+    "healthPoint": 150,
+    "attackPower": 10,
     "counterAttack": 10},
 
     {"name": "Jon",
@@ -15,108 +16,110 @@ $(document).ready(function() {
     "label": "jon",
     "photo": "assets/img/jon.jpeg",
     "status": "enemy",
-    "healthPoint": 50,
-    "attackPower": 15,
-    "counterAttack": 15},
+    "healthPoint": 160,
+    "attackPower": 14,
+    "counterAttack": 14},
 
     {"name": "Daenerys",
     "fullName": "Daenerys Targaryen",
     "label": "daenerys",
     "photo": "assets/img/daenerys.jpeg",
     "status": "enemy",
-    "healthPoint": 90,
-    "attackPower": 9,
-    "counterAttack": 9},
+    "healthPoint": 150,
+    "attackPower": 17,
+    "counterAttack": 17},
 
     {"name": "Jaime",
     "fullName": "Jaime Lannister",
     "label": "jaime",
     "photo": "assets/img/jamie.jpeg",
     "status": "enemy",
-    "healthPoint": 100,
-    "attackPower": 10,
-    "counterAttack": 10},
+    "healthPoint": 145,
+    "attackPower": 16,
+    "counterAttack": 16},
 
     {"name": "Arya",
     "fullName": "Arya Stark",
     "label": "arya",
     "photo": "assets/img/arya.jpeg",
     "status": "enemy",
-    "healthPoint": 110,
-    "attackPower": 7,
-    "counterAttack": 1},
+    "healthPoint": 120,
+    "attackPower": 20,
+    "counterAttack": 20},
 
     {"name": "Brienne",
     "fullName": "Brienne of Tarth",
     "label": "brienne",
     "photo": "assets/img/brienne.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
-    "attackPower": 12,
-    "counterAttack": 1},
+    "healthPoint": 140,
+    "attackPower": 17,
+    "counterAttack": 17},
 
     {"name": "Sandor",
     "fullName": "Sandor Clegane",
     "label": "hound",
     "photo": "assets/img/hound.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
+    "healthPoint": 160,
     "attackPower": 12,
-    "counterAttack": 1},
+    "counterAttack": 12},
 
     {"name": "Melisandre",
     "fullName": "Melisandre",
     "label": "melisandre",
     "photo": "assets/img/melisandre.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
-    "attackPower": 12,
-    "counterAttack": 1},
+    "healthPoint": 200,
+    "attackPower": 8,
+    "counterAttack": 8},
 
     {"name": "Sansa",
     "fullName": "Sansa Stark",
     "label": "sansa",
     "photo": "assets/img/sansa.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
-    "attackPower": 12,
-    "counterAttack": 1},
+    "healthPoint": 180,
+    "attackPower": 10,
+    "counterAttack": 10},
 
     {"name": "Tormund",
     "fullName": "Tormund",
     "label": "tormund",
     "photo": "assets/img/tormund.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
+    "healthPoint": 150,
     "attackPower": 12,
-    "counterAttack": 1},
+    "counterAttack": 10},
 
     {"name": "Cersei",
     "fullName": "Cersei Lannister",
     "label": "cersei",
     "photo": "assets/img/cersei.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
-    "attackPower": 12,
-    "counterAttack": 1},
+    "healthPoint": 130,
+    "attackPower": 18,
+    "counterAttack": 10},
 
-    {"name": "Grey Worm",
-    "fullName": "Grey Worm",
-    "label": "grey",
-    "photo": "assets/img/grey.jpeg",
+    {"name": "Varys",
+    "fullName": "Varys",
+    "label": "varys",
+    "photo": "assets/img/varys.jpeg",
     "status": "enemy",
-    "healthPoint": 60,
-    "attackPower": 12,
-    "counterAttack": 1}
+    "healthPoint": 180,
+    "attackPower": 7,
+    "counterAttack": 7},
   ];
 
+
+//global Variables
   var initalPlayerHealth = "";
   var playerHealth = "";
   var playerAttack = "";
   var playerCounterAttack = "";
   var defenderHealth ="";
 
-
+  // function populates the choose character screen
   var populateAvailableChars = function(){
     $("#available").empty();
     for (var i = 0; i < character.length; i++) {
@@ -137,8 +140,7 @@ $(document).ready(function() {
   };
   populateAvailableChars();
 
-
-
+  //These two function toggle between the two screens
   var showBattle = function(){
     $("#available").css('display', 'none');
     $("#availableText").css('display', 'none');
@@ -150,7 +152,7 @@ $(document).ready(function() {
     $(".gameWindow").css('display', 'none');
   };
 
-
+  // onclick when chosing your player
   $(".availableCard").on("click", function(){
     var char = $(this).attr("id");
     for (var i = 0; i < character.length; i++) {
@@ -174,14 +176,12 @@ $(document).ready(function() {
           '</div>'
         );
       }
-      console.log(playerHealth);
-      console.log(playerAttack);
-      console.log(playerCounterAttack);
     }
     chooseModal();
     $("#Modal").modal("show");
   });
 
+  // this var and function load the R'Hllor hearts
   var hearts = '<img class ="heart" id="heart1" src="assets/img/rhllor.png">'+'<img class ="heart" id="heart2" src="assets/img/rhllor.png">'+'<img class ="heart" id="heart3" src="assets/img/rhllor.png">';
 
   var loadHearts = function(){
@@ -189,6 +189,7 @@ $(document).ready(function() {
   };
   loadHearts();
 
+  // function populates the fight screen
   var populateBattleCharacters = function(){
     $("#defender").empty();
     $("#enemies").empty();
@@ -233,7 +234,7 @@ $(document).ready(function() {
   };
   populateBattleCharacters();
 
-
+  // Load s the modal to choose enemy
   var chooseModal = function(){
     $("#modalImgs").empty();
     for (var i = 0; i < character.length; i++){
@@ -247,13 +248,14 @@ $(document).ready(function() {
     }
   };
 
+  //loads the modal if win
   var winModal= function(){
     $("#modalImgs").empty();
     $("#modalImgs").append('<img id="winImg" src="assets/img/win.jpg">');
     $("#modalImgs").append('<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload();">Replay</button>');
     $(".modal-title").html("You are King of the Andals and the First Men");
   };
-
+  //loads the modal if lose
   var loseModal= function(){
     $("#modalImgs").empty();
     $("#modalImgs").append('<img id="loseImg" src="assets/img/valar.jpg">');
@@ -261,7 +263,7 @@ $(document).ready(function() {
     $(".modal-title").html("Valar Morghulis");
   };
 
-
+  // function for onlick battle
   var battle = function(){
     console.log("phealth: "+playerHealth);
     console.log("dhealth: "+defenderHealth);
@@ -284,7 +286,6 @@ $(document).ready(function() {
       }
     }
     if (playerHealth <= 0){
-
       loseModal();
       $("#Modal").modal("show");
     }
@@ -319,6 +320,7 @@ $(document).ready(function() {
     }
   });
 
+  //onclick for heart trigger
   $("body").on("click",'img.heart', function(){
     var x= $(this).attr("id");
     console.log(x);
@@ -327,14 +329,9 @@ $(document).ready(function() {
     $("#"+x).hide();
   });
 
+//onclick for battle attack
   $(".vs").on("click",'button.btn', function(){
     console.log("clickBattle");
     battle();
   });
 });
-//Notes - to center div for active row- (mx-auto in row div)
-
-// wrap everything in this so it only allows interaction after load...  $(document).ready(function() {
-
-//$("#Modal").modal("show");
-// data-status "player, enemy, dead" as a id element
