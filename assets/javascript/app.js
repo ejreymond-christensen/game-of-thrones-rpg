@@ -265,12 +265,8 @@ $(document).ready(function() {
 
   // function for onlick battle
   var battle = function(){
-    console.log("phealth: "+playerHealth);
-    console.log("dhealth: "+defenderHealth);
     playerHealth = playerHealth - defenderAttack;
-    console.log("phealth: "+playerHealth);
     defenderHealth = defenderHealth - playerAttack;
-    console.log("dhealth: "+defenderHealth);
     playerAttack = playerAttack + playerCounterAttack;
     $("#defenderHealthStat").text("Health: "+defenderHealth);
     $("#playerHealthStat").text("Health: "+playerHealth);
@@ -293,24 +289,19 @@ $(document).ready(function() {
 
   var winGame = function(){
     var deathCount =0;
-    console.log(deathCount);
     for (var i = 0; i < character.length; i++) {
       if(character[i].status === "enemy"){
         deathCount++;
-        console.log(deathCount);
       }
     }
     if(deathCount === 0){
-      console.log("you win");
       winModal();
       $("#Modal").modal("show");
     }
   };
 
   $("body").on("click",'img.modalIcon', function(){
-    console.log("click");
     var nchar = $(this).attr("id");
-    console.log(nchar);
     for (var i = 0; i < character.length; i++) {
       if (nchar === character[i].label){
         character[i].status = "defender";
@@ -323,7 +314,6 @@ $(document).ready(function() {
   //onclick for heart trigger
   $("body").on("click",'img.heart', function(){
     var x= $(this).attr("id");
-    console.log(x);
     playerHealth= initalPlayerHealth;
     populateBattleCharacters();
     $("#"+x).hide();
@@ -331,7 +321,6 @@ $(document).ready(function() {
 
 //onclick for battle attack
   $(".vs").on("click",'button.btn', function(){
-    console.log("clickBattle");
     battle();
   });
 });
