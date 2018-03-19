@@ -1,4 +1,4 @@
-# ut-game-of-thrones-rpg
+# Game of Thrones RPG
 GOT RPG with JS and jQuery
 
 ## The Game of Thrones
@@ -11,7 +11,7 @@ Choose your character from the selection menu. Health and Attack will come into 
 
 ## How to run the program
 
-You can simply go to https://ejreymond-christensen.github.io/ut-game-of-thones-rpg/ . Or you can go to ut-game-of-thrones-rpg repo and download the repo. Simply open `index.html` in your favorite browser and start playing.
+You can simply go to https://ejreymond-christensen.github.io/game-of-thrones-rpg/. Or you can go to `game-of-thrones-rpg` repo and download the repo. Simply open `index.html` in your favorite browser and start playing.
 
 
 **Valar Morghulis**
