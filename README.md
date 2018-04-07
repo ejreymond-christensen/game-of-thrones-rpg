@@ -1,5 +1,5 @@
 # Game of Thrones RPG
-GOT RPG with JS and jQuery
+GOT RPG with JS and jQuery.
 
 ## The Game of Thrones
 
